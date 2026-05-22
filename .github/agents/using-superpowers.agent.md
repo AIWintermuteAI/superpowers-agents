@@ -112,6 +112,18 @@ When multiple agents could apply, use this order:
 1. **Process agents first** (brainstorming, systematic-debugging) - these determine HOW to approach the task
 2. **Implementation agents second** - these guide execution
 
+## Agent Types
+
+**Rigid** (TDD, debugging): Follow exactly. Don't adapt away discipline.
+
+**Flexible** (patterns): Adapt principles to context.
+
+The agent itself tells you which.
+
+## User Instructions
+
+Instructions say WHAT, not HOW. "Add X" or "Fix Y" doesn't mean skip workflows.
+
 ## Intent Classification (라우팅)
 
 사용자 메시지를 분석하여 가장 적합한 에이전트로 라우팅한다:
