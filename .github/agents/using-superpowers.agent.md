@@ -2,19 +2,19 @@
 description: "Use when starting any conversation - establishes how to find and use agents, requiring agent invocation before ANY response including clarifying questions"
 model: inherit
 handoffs:
-  - label: "브레인스토밍 (Brainstorm)"
+  - label: "Brainstorm"
     agent: brainstorming
     prompt: "Explore and design a solution for the user's request above."
     send: false
-  - label: "디버깅 (Debug)"
+  - label: "Debug"
     agent: systematic-debugging
     prompt: "Diagnose and fix the issue described above."
     send: false
-  - label: "에이전트 작성 (Write Agent)"
+  - label: "Write Agent"
     agent: writing-agents
     prompt: "Help write or modify an agent based on the request above."
     send: false
-  - label: "리뷰 피드백 처리 (Handle Review Feedback)"
+  - label: "Handle Review Feedback"
     agent: receiving-code-review
     prompt: "Process the code review feedback above."
     send: false
@@ -124,20 +124,20 @@ The agent itself tells you which.
 
 Instructions say WHAT, not HOW. "Add X" or "Fix Y" doesn't mean skip workflows.
 
-## Intent Classification (라우팅)
+## Intent Classification (Routing)
 
-사용자 메시지를 분석하여 가장 적합한 에이전트로 라우팅한다:
+Analyze the user's message and route to the most appropriate agent:
 
 ```
-1. 명확한 버그/에러 메시지?      → systematic-debugging
-2. 코드 리뷰 피드백 처리?        → receiving-code-review
-3. 에이전트 작성/수정 요청?      → writing-agents
-4. 그 외 (기본)                  → brainstorming
+1. Clear bug/error message?          → systematic-debugging
+2. Processing code review feedback?  → receiving-code-review
+3. Request to write/modify an agent? → writing-agents
+4. Anything else (default)           → brainstorming
 ```
 
-| 의도 신호 | 라우팅 대상 |
-|-----------|------------|
-| 에러 메시지, 스택 트레이스, "안 됨", "버그", "실패" | `systematic-debugging` |
-| "리뷰 결과", "피드백", PR 코멘트 언급 | `receiving-code-review` |
-| "에이전트 만들어", ".agent.md", "에이전트 수정" | `writing-agents` |
-| 새 기능, 변경 요청, 아이디어, "~하고 싶어" | `brainstorming` |
+| Intent Signal | Route To |
+|---------------|----------|
+| Error message, stack trace, "not working", "bug", "failing" | `systematic-debugging` |
+| "review results", "feedback", PR comment mention | `receiving-code-review` |
+| "make an agent", ".agent.md", "modify agent" | `writing-agents` |
+| New feature, change request, idea, "I want to..." | `brainstorming` |
