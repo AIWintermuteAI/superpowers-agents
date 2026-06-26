@@ -25,6 +25,13 @@ Install this extension and get 14 specialized Copilot agents automatically:
 
 On activation, the extension copies agent files to `~/.superpowers-copilot/agents/` and registers the path in VS Code's `chat.agentFilesLocations` setting. That's it.
 
+## Modifications
+
+This fork contains the following changes from the original:
+
+- All Korean text translated to English throughout agent files
+- `writing-plans` agent: plans are saved to workspace memory instead of `docs/superpowers/plans/`
+
 ## Credits
 
 Based on [Superpowers](https://github.com/obra/superpowers) by Jesse Vincent.
