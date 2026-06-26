@@ -28,6 +28,7 @@
     "planning"
   ],
   "main": "./dist/extension.js",
+  "icon": "icon.png",
   "activationEvents": [
     "onStartupFinished"
   ],
